@@ -1,0 +1,829 @@
+[
+    {
+        "id": "fdbc475a.c47a78",
+        "type": "tab",
+        "label": "Aperturas",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "62fad3f.86eb62c",
+        "type": "rpi-gpio out",
+        "z": "fdbc475a.c47a78",
+        "name": "",
+        "pin": "17",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 1000,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "14e3f14c.16751f",
+        "type": "rpi-gpio out",
+        "z": "fdbc475a.c47a78",
+        "name": "",
+        "pin": "27",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 1000,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "1263dd78.22f133",
+        "type": "trigger",
+        "z": "fdbc475a.c47a78",
+        "name": "",
+        "op1": "garage",
+        "op2": "false",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 560,
+        "y": 200,
+        "wires": [
+            [
+                "5ba34dbb.1904e4"
+            ]
+        ]
+    },
+    {
+        "id": "4f4f898a.888c48",
+        "type": "trigger",
+        "z": "fdbc475a.c47a78",
+        "name": "",
+        "op1": "door",
+        "op2": "false",
+        "op1type": "str",
+        "op2type": "bool",
+        "duration": "0.5",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 570,
+        "y": 260,
+        "wires": [
+            [
+                "b32938a7.d96a98"
+            ]
+        ]
+    },
+    {
+        "id": "4031320d.4784cc",
+        "type": "inject",
+        "z": "fdbc475a.c47a78",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 60,
+        "wires": [
+            [
+                "3ca43ddc.2095a2"
+            ]
+        ]
+    },
+    {
+        "id": "1f90f7b5.8c3988",
+        "type": "ui_button",
+        "z": "fdbc475a.c47a78",
+        "name": "",
+        "group": "ba93b268.a938a",
+        "order": 1,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "VEHICULAR",
+        "tooltip": "ABRE / CIERRA PORTON VEHICULAR",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "topicType": "str",
+        "x": 430,
+        "y": 140,
+        "wires": [
+            [
+                "be43e1f1.1ad56",
+                "1263dd78.22f133",
+                "eaf35e03.9e3cd",
+                "a4291817.e17308"
+            ]
+        ]
+    },
+    {
+        "id": "bbf8d7c.1f98c28",
+        "type": "ui_button",
+        "z": "fdbc475a.c47a78",
+        "name": "",
+        "group": "81c174c4.9a7a38",
+        "order": 1,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "PEATONAL",
+        "tooltip": "ABRE EL PORTON PEATONAL",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "topicType": "str",
+        "x": 350,
+        "y": 320,
+        "wires": [
+            [
+                "4f4f898a.888c48",
+                "df854de5.e7fd4",
+                "2d4d69b0.b40e06",
+                "87d812ba.b1cd3"
+            ]
+        ]
+    },
+    {
+        "id": "be43e1f1.1ad56",
+        "type": "ui_led",
+        "z": "fdbc475a.c47a78",
+        "order": 2,
+        "group": "ba93b268.a938a",
+        "width": 1,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#A9D0F5",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "",
+        "x": 950,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "a4291817.e17308",
+        "type": "ui_led",
+        "z": "fdbc475a.c47a78",
+        "order": 3,
+        "group": "ba93b268.a938a",
+        "width": 1,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#A9D0F5",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "",
+        "x": 950,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "eaf35e03.9e3cd",
+        "type": "ui_led",
+        "z": "fdbc475a.c47a78",
+        "order": 4,
+        "group": "ba93b268.a938a",
+        "width": 1,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#A9D0F5",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "",
+        "x": 950,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "df854de5.e7fd4",
+        "type": "ui_led",
+        "z": "fdbc475a.c47a78",
+        "order": 3,
+        "group": "81c174c4.9a7a38",
+        "width": 1,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#A9D0F5",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "",
+        "x": 950,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "2d4d69b0.b40e06",
+        "type": "ui_led",
+        "z": "fdbc475a.c47a78",
+        "order": 2,
+        "group": "81c174c4.9a7a38",
+        "width": 1,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#A9D0F5",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "",
+        "x": 950,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "87d812ba.b1cd3",
+        "type": "ui_led",
+        "z": "fdbc475a.c47a78",
+        "order": 4,
+        "group": "81c174c4.9a7a38",
+        "width": 1,
+        "height": 1,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#A9D0F5",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "",
+        "x": 950,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b32938a7.d96a98",
+        "type": "clock-generator",
+        "z": "fdbc475a.c47a78",
+        "name": "",
+        "topic": "",
+        "period": "1",
+        "output": "1",
+        "init": false,
+        "x": 740,
+        "y": 260,
+        "wires": [
+            [],
+            [
+                "14e3f14c.16751f",
+                "87d812ba.b1cd3",
+                "2d4d69b0.b40e06",
+                "df854de5.e7fd4"
+            ]
+        ]
+    },
+    {
+        "id": "5ba34dbb.1904e4",
+        "type": "clock-generator",
+        "z": "fdbc475a.c47a78",
+        "name": "",
+        "topic": "",
+        "period": "1",
+        "output": "1",
+        "init": false,
+        "x": 740,
+        "y": 200,
+        "wires": [
+            [],
+            [
+                "62fad3f.86eb62c",
+                "be43e1f1.1ad56",
+                "a4291817.e17308",
+                "eaf35e03.9e3cd"
+            ]
+        ]
+    },
+    {
+        "id": "3ca43ddc.2095a2",
+        "type": "ui_clock",
+        "z": "fdbc475a.c47a78",
+        "name": "",
+        "group": "c2ace861.4cf068",
+        "order": 1,
+        "width": 2,
+        "height": 2,
+        "x": 270,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "d8d4dac62046ae02",
+        "type": "mqtt in",
+        "z": "fdbc475a.c47a78",
+        "name": "",
+        "topic": "control/relay",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "67c2535e774ede45"
+            ]
+        ]
+    },
+    {
+        "id": "67c2535e774ede45",
+        "type": "switch",
+        "z": "fdbc475a.c47a78",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "garage",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "door",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "light_on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "light_off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 130,
+        "y": 300,
+        "wires": [
+            [
+                "1263dd78.22f133"
+            ],
+            [
+                "4f4f898a.888c48"
+            ],
+            [
+                "ea91e4246bd1974b"
+            ],
+            [
+                "4e650cd9b0507355"
+            ]
+        ]
+    },
+    {
+        "id": "9615c2d0e6b6645e",
+        "type": "rpi-gpio out",
+        "z": "fdbc475a.c47a78",
+        "name": "",
+        "pin": "18",
+        "set": false,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 1000,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "16a14b8259e8623d",
+        "type": "ui_switch",
+        "z": "fdbc475a.c47a78",
+        "name": "",
+        "label": "LUZ",
+        "tooltip": "",
+        "group": "c2ace861.4cf068",
+        "order": 3,
+        "width": 2,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 590,
+        "y": 420,
+        "wires": [
+            [
+                "9336801c43e2a266"
+            ]
+        ]
+    },
+    {
+        "id": "9336801c43e2a266",
+        "type": "change",
+        "z": "fdbc475a.c47a78",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "1",
+                "tot": "num"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 420,
+        "wires": [
+            [
+                "9615c2d0e6b6645e",
+                "7ec82076186cb560"
+            ]
+        ]
+    },
+    {
+        "id": "4e650cd9b0507355",
+        "type": "change",
+        "z": "fdbc475a.c47a78",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "light_off",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 460,
+        "wires": [
+            [
+                "16a14b8259e8623d"
+            ]
+        ]
+    },
+    {
+        "id": "ea91e4246bd1974b",
+        "type": "change",
+        "z": "fdbc475a.c47a78",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "light_on",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 380,
+        "wires": [
+            [
+                "16a14b8259e8623d"
+            ]
+        ]
+    },
+    {
+        "id": "04dcf7c32d304f6f",
+        "type": "ui_text",
+        "z": "fdbc475a.c47a78",
+        "group": "c2ace861.4cf068",
+        "order": 6,
+        "width": 6,
+        "height": 2,
+        "name": "",
+        "label": "STATUS",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 700,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "9603ab15fc9277f1",
+        "type": "mqtt in",
+        "z": "fdbc475a.c47a78",
+        "name": "",
+        "topic": "status/relay3",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "bfcd6cd53eaaf6c4",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 490,
+        "y": 60,
+        "wires": [
+            [
+                "04dcf7c32d304f6f"
+            ]
+        ]
+    },
+    {
+        "id": "1d6155a48774f26d",
+        "type": "mqtt out",
+        "z": "fdbc475a.c47a78",
+        "name": "",
+        "topic": "status/relay3",
+        "qos": "1",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "",
+        "x": 850,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "7ec82076186cb560",
+        "type": "change",
+        "z": "fdbc475a.c47a78",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "1",
+                "fromt": "num",
+                "to": "Apagada",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "0",
+                "fromt": "num",
+                "to": "Encendida",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 480,
+        "wires": [
+            [
+                "1d6155a48774f26d",
+                "6ab11803c3adc727"
+            ]
+        ]
+    },
+    {
+        "id": "6ab11803c3adc727",
+        "type": "debug",
+        "z": "fdbc475a.c47a78",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "9fbc6e4d683a256f",
+        "type": "ui_spacer",
+        "z": "fdbc475a.c47a78",
+        "name": "spacer",
+        "group": "c2ace861.4cf068",
+        "order": 2,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "3e58bc300c4fc373",
+        "type": "ui_spacer",
+        "z": "fdbc475a.c47a78",
+        "name": "spacer",
+        "group": "c2ace861.4cf068",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "7718eff58e59aa84",
+        "type": "ui_spacer",
+        "z": "fdbc475a.c47a78",
+        "name": "spacer",
+        "group": "c2ace861.4cf068",
+        "order": 5,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "ba93b268.a938a",
+        "type": "ui_group",
+        "name": "----PORTON----",
+        "tab": "5e405b35.7606e4",
+        "order": 1,
+        "disp": true,
+        "width": "3",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "81c174c4.9a7a38",
+        "type": "ui_group",
+        "name": "----PORTON----",
+        "tab": "5e405b35.7606e4",
+        "order": 3,
+        "disp": true,
+        "width": "3",
+        "collapse": false
+    },
+    {
+        "id": "c2ace861.4cf068",
+        "type": "ui_group",
+        "name": "ILUMINACION",
+        "tab": "5e405b35.7606e4",
+        "order": 4,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bfcd6cd53eaaf6c4",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "5e405b35.7606e4",
+        "type": "ui_tab",
+        "name": "Aperturas",
+        "icon": "dashboard",
+        "order": 7,
+        "disabled": false,
+        "hidden": false
+    }
+]
